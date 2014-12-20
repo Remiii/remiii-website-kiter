@@ -3,7 +3,7 @@
 namespace remiii\GlobalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -27,7 +27,7 @@ class SpotProposal
      * @var \DateTime
      *
      * @ORM\Column(name="created", type="datetime")
-     * @Assert\NotBlank()
+     * @Gedmo\Timestampable(on="create")
      * @Assert\DateTime()
      */
     private $created;
@@ -36,7 +36,7 @@ class SpotProposal
      * @var \DateTime
      *
      * @ORM\Column(name="last_modified", type="datetime")
-     * @Assert\NotBlank()
+     * @Gedmo\Timestampable(on="update")
      * @Assert\DateTime()
      */
     private $lastModified;
@@ -45,6 +45,7 @@ class SpotProposal
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
