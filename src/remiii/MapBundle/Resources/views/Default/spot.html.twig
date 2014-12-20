@@ -1,0 +1,129 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent ( ) }} - {{ spot.name|capitalize }} ({{ spot.x|number_format(2, '.', ',') }},{{ spot.y|number_format(2, '.', ',') }}){% endblock title %}
+
+{% block stylesheet %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="/bundles/remiiimap/css/spot.css" />
+
+{% endblock stylesheet %}
+
+{% block body %}
+
+    <div class="jumbotron" style="background:url(https://maps.googleapis.com/maps/api/staticmap?center={{ spot.y }},{{ spot.x }}&zoom=14&size=2500x450&maptype=satellite&markers={{ spot.y }},{{ spot.x }}&scale=2)no-repeat center center;background-repeat:no-repeat;width: 100%; background-size: 100%;">
+        <div class="container">
+            <center><h1 style="color:white;padding-top:100px;">{{ spot.name|capitalize }}</h1></center>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>{{ spot.name|capitalize }}</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <p>X {{ spot.x|number_format(3, '.', ',') }} - Y {{ spot.y|number_format(3, '.', ',') }}
+                &nbsp;>>&nbsp;<a href="/{{ app.request.getLocale() }}/{{ spot.url }}/update" class="btn btn-primary btn-xs" role="button">{{ 'update_this_spot'|trans|capitalize }}</a></p>
+            </div>
+        </div>
+        {% if spot.description|default %}
+            <p>{{ spot.description }}</p>
+        {% endif %}
+        <h2>{{ 'sport'|trans|capitalize }}</h2>
+        {% if not spot.sport|default %}
+            {{ 'text_tbd'|trans }}
+        {% else %}
+            <p>{{ spot.sport|join('|')|title }}</p>
+        {% endif %}
+        <h2>{{ 'wind'|trans|capitalize }}</h2>
+        {% if not spot.wind|default %}
+            {{ 'text_tbd'|trans }}
+        {% else %}
+            <p>{{ spot.wind|join('|')|upper }}</p>
+        {% endif %}
+        <h2>{{ 'tide'|trans|capitalize }}</h2>
+        {% if not spot.tide|default %}
+            {{ 'text_tbd'|trans }}
+        {% else %}
+            <p>{{ spot.tide|join('|')|capitalize }}</p>
+        {% endif %}
+        <hr>
+        <div class="row">
+            <div class="col-lg-3">
+                <h3>{{ 'condition'|trans|capitalize }}</h3>
+                {% if not spot.condition|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.condition|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                <h3>{{ 'hazard'|trans|capitalize }}</h3>
+                {% if not spot.hazard|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.hazard|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                <h3>{{ 'rule'|trans|capitalize }}</h3>
+                {% if not spot.rule|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.rule|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                <h3>{{ 'surface'|trans|capitalize }}</h3>
+                {% if not spot.surface|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.surface|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-3">
+                <h3>{{ 'webcam'|trans|capitalize }}</h3>
+                {% if not spot.webcam|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.webcam|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                <h3>{{ 'video'|trans|capitalize }}</h3>
+                {% if not spot.video|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.video|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                <h3>{{ 'photo'|trans|capitalize }}</h3>
+                {% if not spot.photo|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.photo|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                <h3>{{ 'shop'|trans|capitalize }}</h3>
+                {% if not spot.shop|default %}
+                    {{ 'text_tbd'|trans }}
+                {% else %}
+                    <p>{{ spot.shop|join('|')|capitalize }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{ 'text_claim_participate'|trans }} <a href="/{{ app.request.getLocale() }}/{{ spot.url }}/update" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{ 'update_this_spot'|trans|capitalize }}</a></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+

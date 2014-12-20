@@ -1,0 +1,49 @@
+
+  ,
+ /|   / o                o
+  |__/    _|_  _   ,_        __
+  | \   |  |  |/  /  |   |  /  \_
+  |  \_/|_/|_/|__/   |_/o|_/\__/
+
+
+#####################
+# TEAM
+#   ----------------
+#   Name:               Remi Barbe (aka Remiii)
+#   Contact:            free-software <<at>> remibarbe <<dot>> fr
+#   Twitter:            @Remiii_
+#   GitHub:             github.com/remiii
+#   From:               Bordeaux/Paris, France
+####################
+
+
+####################
+# THANKS
+#   ----------------
+#   #TODO
+####################
+
+
+####################
+# SITE
+#   ----------------
+#   Last update:        -
+#   Language:           French
+#   HTML:               HTML5
+#   CSS:                CSS3 / TwitterBootstrap3 with Glyphicons
+#   Design:             FlatUI
+#   Javascript:         jQuery, Parsley (see bower.json file)
+#   IDE:                VIM - GNU/LINUX
+#   Generator:          Symfony2 (sf2)
+#   ORM:                Doctrine
+#   SCM:                Git
+#   Hosting:            AmazonAWS and OVH
+####################
+
+####################
+# API
+#   ----------------
+#   Last update:        -
+#   URL:                TODO
+####################
+

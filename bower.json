@@ -1,0 +1,10 @@
+{
+    "name": "remiii-website-kiter",
+    "version": "0.0.0",
+    "dependencies": {
+        "bootstrap": "~3",
+        "flat-ui": "~2",
+        "jquery": "~1",
+        "parsleyjs": "~2"
+    }
+}

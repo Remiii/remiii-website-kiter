@@ -1,0 +1,92 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent ( ) }} - Where kiters reach spots{% endblock title%}
+
+{% block stylesheet %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="/bundles/remiiicorporate/css/home.css" />
+
+{% endblock stylesheet %}
+
+{# Update highlights #}
+{% set highlights = [ {'x': '2.398', 'y': '48.616', 'name': 'bondoufle', 'brief': 'Buggy, Kite, Mountainborad...' } ] %}
+
+{% block body %}
+
+    <div class="jumbotron" style="background:url(/bundles/remiiicorporate/images/hero.jpg)no-repeat center center;background-repeat:no-repeat;width: 100%; background-size: 100%;">
+        <div class="container">
+            <center><h1 style="color:white;">kiter.io<br><i>Where kiters reach spots</i></h1></center>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img style="margin-top:30px;" src="/vendor/flat-ui/img/icons/svg/compas.svg" alt="compas">
+                    </div>
+                    <div class="col-sm-10">
+                        <h2>{{ 'corporate.text_kiterio_description'|trans }}.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-lg-4 text-center" style="margin-bottom:40px;">
+                <h2 style="font-size:42px;">{{ 'corporate.spotmap_title'|trans|capitalize }}</h2>
+                {#<p>{{ 'corporate.spotmap_definition'|trans|capitalize }}.</p>#}
+                <a href="{{ path( 'remiii_map_spotmap' ) }}" class="btn btn-primary btn-lg">{{ 'corporate.spotmap_button'|trans|capitalize }}</a>
+            </div>
+            <div class="col-lg-4 text-center">
+                <h2 style="font-size:42px;">{{ 'corporate.add_spot_title'|trans|capitalize }}</h2>
+                {#<p>{{ 'corporate.add_spot_definition'|trans|capitalize }}.</p>#}
+                <a href="{{ path( 'remiii_map_spotProposalAdd' ) }}" class="btn btn-primary btn-lg">{{ 'corporate.add_spot_button'|trans|capitalize }}</a>
+            </div>
+            <div class="col-lg-4 text-center">
+                <h2 style="font-size:42px;">{{ 'corporate.contact-us_title'|trans|capitalize }}</h2>
+                {#<p>{{ 'corporate.contact-us_definition'|trans|capitalize }}.</p>#}
+                <a href="{{ path( 'remiii_corporate_contact' ) }}" class="btn btn-primary btn-lg">{{ 'corporate.contact-us_button'|trans|capitalize }}</a>
+            </div>
+        </div>
+
+        {# Highlights #}
+        <hr>
+        <div class="row highlights" style="margin-top:50px;">
+            <div class="col-sm-2">
+                <img style="margin-top:30px;" src="/vendor/flat-ui/img/icons/svg/retina.svg" alt="retina">
+            </div>
+            <div class="col-sm-3">
+                <h2>Highlights</h2>
+            </div>
+            <div class="col-sm-7">
+                {% for highlight in highlights %}
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="jumbotron">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <h3>{{ highlight['name']|capitalize }}</h3>
+                                    <p>{{ highlight['brief'] }}</p>
+                                    <a href="{{ path( 'remiii_map_spot', {'x': highlight['x'], 'y': highlight['y'], 'name': highlight['name'] } ) }}" class="btn-primary btn-lg">See the spot >></a>
+                                </div>
+                                <div class="col-md-5 hidden-xs hidden-sm">
+                                    <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ highlight['y'] }},{{ highlight['x'] }}&zoom=10&size=150x150&maptype=map" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock body %}
+

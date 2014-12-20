@@ -1,0 +1,36 @@
+remiii_corporate_home:
+    path:     /
+    defaults: { _controller: remiiiCorporateBundle:Default:home }
+    requirements:
+        _method:  GET
+
+remiii_corporate_contact:
+    path:     /contact
+    defaults: { _controller: remiiiCorporateBundle:Contact:contact }
+    requirements:
+        _method:  GET|POST
+
+remiii_corporate_credit:
+    path:     /credit
+    defaults: { _controller: remiiiCorporateBundle:Default:credit }
+    requirements:
+        _method:  GET
+
+remiii_corporate_legal:
+    path:     /legal
+    defaults: { _controller: remiiiCorporateBundle:Default:legal }
+    requirements:
+        _method:  GET
+
+remiii_corporate_faq:
+    path:     /faq
+    defaults: { _controller: remiiiCorporateBundle:Default:faq }
+    requirements:
+        _method:  GET
+
+remiii_corporate_about:
+    path:     /about
+    defaults: { _controller: remiiiCorporateBundle:Default:about }
+    requirements:
+        _method:  GET
+

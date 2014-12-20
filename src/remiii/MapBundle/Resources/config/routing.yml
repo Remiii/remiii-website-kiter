@@ -1,0 +1,49 @@
+remiii_map_spotmap:
+    path:     /map/
+    defaults: { _controller: remiiiMapBundle:Default:map }
+    requirements:
+        _method:  GET
+
+remiii_map_spot:
+    path:     /{x}/{y}/{name}
+    defaults: { _controller: remiiiMapBundle:Default:spot }
+    requirements:
+        _method:  GET
+
+remiii_map_spotsList:
+    path:   /spot/list
+    defaults: { _controller: remiiiMapBundle:Default:spotsList }
+    requirements:
+        _method:  GET
+
+remiii_map_spotsList_geojson:
+    path:     /map/spots.geojson
+    defaults: { _controller: remiiiMapBundle:Default:spotsListGeoJson }
+    requirements:
+        _method:  GET
+
+remiii_map_spotProposalAdd:
+    path: /add-spot
+    defaults: { _controller: remiiiMapBundle:Default:spotProposalAdd }
+    requirements:
+        _method:  GET|POST
+
+remiii_map_spotProposalUpdate:
+    path: /{x}/{y}/{name}/update
+    defaults: { _controller: remiiiMapBundle:Default:spotProposalUpdate }
+    requirements:
+        _method:  GET|POST
+
+remiii_map_spotUpdate:
+    path: /admin/{x}/{y}/{name}/update
+    defaults: { _controller: remiiiMapBundle:Default:spotUpdate }
+    requirements:
+        _method:  GET|POST
+
+remiii_map_spotAdd:
+    path: /admin/add-spot
+    defaults: { _controller: remiiiMapBundle:Default:spotAdd }
+    requirements:
+        _method:  GET|POST
+
+

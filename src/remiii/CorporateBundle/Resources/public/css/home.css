@@ -1,0 +1,17 @@
+.highlights h2 {
+    font-size : 42px ;
+}
+
+.highlights h3 {
+    margin-top : 15px ;
+    margin-bottom : 15px ;
+}
+
+.highlights .jumbotron {
+    padding-top : 15px ;
+    padding-bottom : 15px ;
+}
+
+.highlights p {
+    font-size : 14px ;
+}

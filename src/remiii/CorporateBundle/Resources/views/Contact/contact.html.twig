@@ -1,0 +1,66 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent ( ) }} - {{ 'contact'|trans|capitalize }}{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+
+        <style>
+            label{
+                padding:0px !important;
+            }
+        </style>
+        <h1>{{ "contact"|trans|capitalize }}</h1>
+
+        {% for message in app.session.flashbag.get('messages') %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    {{ form_start(form, {'attr': {'class': '','data-parsley-validate':''}}) }}
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    {{ form_label(form.name, 'contact.name'|trans|capitalize) }}
+                                    {{ form_errors(form.name) }}
+                                    {{ form_widget(form.name, {'attr': { 'data-parsley-trigger':'change', 'data-parsley-minlength':'3'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.email, 'contact.email'|trans|capitalize) }}
+                                    {{ form_errors(form.email) }}
+                                    {{ form_widget(form.email, {'attr': { 'data-parsley-trigger':'change'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.subject, 'contact.subject'|trans|capitalize) }}
+                                    {{ form_errors(form.subject) }}
+                                    {{ form_widget(form.subject, {'attr': { 'data-parsley-trigger':'change', 'data-parsley-minlength':'3'}}) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="form-group">
+                                    {{ form_label(form.message, 'contact.message'|trans|capitalize) }}
+                                    {{ form_errors(form.message) }}
+                                    {{ form_widget(form.message, {'attr': { 'data-parsley-trigger':'change', 'data-parsley-minlength':'6'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {{ form_row(form.sendMessage) }}
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock body %}
+
+

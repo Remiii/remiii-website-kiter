@@ -1,0 +1,85 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ 'map'|trans|capitalize }}{% endblock title %}
+
+{% block stylesheet %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="/bundles/remiiimap/css/map.css" />
+
+{% endblock stylesheet %}
+
+{% block body %}
+
+    <div class='container-map'>
+        <div id="map-canvas"></div>
+    </div>
+
+{% endblock body %}
+
+{% block javascript %}
+
+    {{ parent() }}
+
+    {# JS Google MAP #}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+
+        function capitalize(s) {
+            return s && s[0].toUpperCase() + s.slice(1);
+        }
+
+        function prettyPrint ( s )
+        {
+            if ( s === undefined || s === null || s == '' )
+            {
+                return '' ;
+            }
+            else
+            {
+                return capitalize ( s ) ;
+            }
+        }
+
+        var map;
+        var infowindow = new google.maps.InfoWindow();
+
+        function initialize() {
+            {# Create a simple map #}
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: 5,
+                center: new google.maps.LatLng(49,1),
+                scrollwheel: false
+            });
+            google.maps.event.addListener(map, 'click', function() {
+                infowindow.close();
+            });
+
+            {# TODO need to be updated #}
+            var url = 'http://kiter.io/map/spots.geojson'
+            map.data.loadGeoJson(url);
+
+            {# Set event listener for each feature #}
+            map.data.addListener('click', function(event) {
+                infowindow.setContent(
+                    '<div class="gm-info-windows">' +
+                    '<h1>' + prettyPrint ( event.feature.getProperty('title') ) + '</h1>' +
+                    '<div class="bodyContent">' + '<p>' + prettyPrint ( event.feature.getProperty('description') ) +
+                    prettyPrint ( event.feature.getProperty('sports') ) + '</p>' +
+                    '<p><a href="/{{ app.request.getLocale() }}/'+event.feature.getProperty('url')+'">More&nbsp;details&nbsp;>></a>' + '</p>' +
+                    '</div>' +
+                    '</div>'
+                );
+                infowindow.setPosition(event.latLng);
+                infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
+                infowindow.open(map);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    {# End JS Google MAP #}
+
+{% endblock javascript %}
+

@@ -1,0 +1,18 @@
+corporate:
+    spotmap_title: spot karte
+    spotmap_definition: spots karte
+    spotmap_button: spot karte
+    add_spot_title: hinzuügen spots
+    add_spot_definition: add spots in one minute
+    add_spot_button: add a spot
+    contact-us_title: kontakt
+    contact-us_definition: kontakt
+    contact-us_button: kontaktieren sie uns
+    text_kiterio_description: kiter.io is a website where kiters can find and add spots
+contact:
+    name: name
+    email: email
+    subject: thema
+    message: nachricht
+    send: weiter
+
