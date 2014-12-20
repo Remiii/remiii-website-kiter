@@ -203,6 +203,7 @@ class SpotType extends AbstractType
             ->add('spotWebcams', 'collection', array(
                 'type' => new SpotWebcamType(),
                 'required' => false
+            ))
             ->add('ok', 'submit', array('attr' => array('class' => 'btn btn-primary pull-right')));
 
     }

@@ -4,6 +4,8 @@ namespace remiii\GlobalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Spot
@@ -26,6 +28,8 @@ class Spot
      * @var \DateTime
      *
      * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * @Assert\DateTime()
      */
     private $created;
 
@@ -33,6 +37,8 @@ class Spot
      * @var \DateTime
      *
      * @ORM\Column(name="last_modified", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update")
+     * @Assert\DateTime()
      */
     private $lastModified;
 

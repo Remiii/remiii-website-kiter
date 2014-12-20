@@ -312,10 +312,10 @@ class DefaultController extends Controller
 
                 $spot -> setLastModified ( new \DateTime ( ) ) ;
 
-                foreach ( $spot -> getSpotPhotos ( ) as $spotPhoto )
+                /*foreach ( $spot -> getSpotPhotos ( ) as $spotPhoto )
                 {
                     $spotPhoto -> setSpot ( $spot ) ;
-                }
+                }*/
                 $em -> persist ( $spot ) ;
                 $em -> flush ( ) ;
 
