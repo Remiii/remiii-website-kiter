@@ -1,0 +1,263 @@
+<?php
+
+namespace remiii\GlobalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+/**
+ * Spot
+ *
+ * @ORM\Table(name="spot_photo")
+ * @ORM\Entity(repositoryClass="remiii\GlobalBundle\Repository\SpotPhotoRepository")
+ */
+class SpotPhoto
+{
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+     private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_modified", type="datetime")
+     */
+    private $lastModified;
+
+    /**
+     * @ORM\Column(name="photo", type="string", length=255, nullable=false)
+     * @Assert\File(maxSize="4096k", mimeTypesMessage = "Please upload a file smaller than 4Mo")
+     * @Assert\NotBlank
+     */
+    private $photo;
+
+    /**
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
+     */
+    private $path;
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/documents';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->photo)
+        {
+            $this->path = sha1(uniqid(mt_rand(), true)).'.'.$this->photo->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null !== $this->photo) {
+            $this->photo->move($this->getUploadRootDir(), $this->path);
+            unset($this->photo);
+        }
+
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getPath()) {
+            unlink($file);
+        }
+    }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Spot", inversedBy="spotPhotos", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="spot_id", referencedColumnName="id")
+     */
+    protected $spot;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime() ;
+        $this->lastModified = new \DateTime() ;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return SpotPhoto
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set lastModified
+     *
+     * @param \DateTime $lastModified
+     * @return SpotPhoto
+     */
+    public function setLastModified($lastModified)
+    {
+        $this->lastModified = $lastModified;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModified
+     *
+     * @return \DateTime
+     */
+    public function getLastModified()
+    {
+        return $this->lastModified;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return SpotPhoto
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return SpotPhoto
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * Set spot
+     *
+     * @param \remiii\GlobalBundle\Entity\Spot $spot
+     * @return SpotPhoto
+     */
+    public function setSpot(\remiii\GlobalBundle\Entity\Spot $spot = null)
+    {
+        $this->spot = $spot;
+
+        return $this;
+    }
+
+    /**
+     * Get spot
+     *
+     * @return \remiii\GlobalBundle\Entity\Spot
+     */
+    public function getSpot()
+    {
+        return $this->spot;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return SpotPhoto
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+}

@@ -1,0 +1,21 @@
+home: home
+map: map
+contact: contact
+faq: faq
+credit: credit
+about: about
+legal: legal
+english: english
+french: french
+german: german
+add_spot: add spot
+update_spot: update spot
+spots_list: spots list
+features: feature
+project: project
+developper_part: developper part
+footer:
+    text_claim: kiter.io is a website dedicated to kite... on this website you can find and add spots
+back_to_the_top: Back to the top
+your_description: Your description
+your_extra_info: Your extra infos...

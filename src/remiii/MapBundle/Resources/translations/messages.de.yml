@@ -1,0 +1,49 @@
+map: karte
+more_details: more details
+update_this_spot: aktualisierung spot
+label:
+    x: X
+    y: Y
+    name: Name
+    description: Description
+    sport: Sport
+    sportExtra: Sport Extra
+    wind: Wind
+    windExtra: Wind extra
+    tide: Tide
+    tideExtra: Tide extra
+    condition: Condition
+    conditionExtra: Condition extra
+    hazard: Hazard
+    hazardExtra: Hazard extra
+    rule: regel
+    ruleExtra: regel extra
+    surface: Surface
+    surfaceExtra: Surface extra
+    spotWebcams: Spot webcam
+x: X
+y: Y
+name: Name
+description: Description
+sport: Sport
+sportExtra: Sport Extra
+wind: Wind
+windExtra: Wind extra
+tide: Tide
+tideExtra: Tide extra
+condition: Condition
+conditionExtra: Condition extra
+hazard: Hazard
+hazardExtra: Hazard extra
+rule: Regel
+ruleExtra: Regel extra
+surface: Surface
+surfaceExtra: Surface extra
+spotWebcams: Spot webcam
+video: video
+photo: foto
+shop: shop
+text_claim_participate: Give a hand to kiter.io
+text_tbd: To be defined
+text_n-a: N/A
+

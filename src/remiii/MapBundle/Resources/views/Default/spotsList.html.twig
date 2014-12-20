@@ -1,0 +1,17 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent ( ) }} - {{ 'spot'|trans|capitalize }}{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{{ 'spot'|trans|capitalize }}</h1>
+        <ul class="list-unstyled">
+            {% for key, spot in spots %}
+                <li><a href="/{{ app.request.getLocale() }}/{{ spot.url }}">{{ spot.name|capitalize }} ({{ spot.x|number_format(3, '.', ',') }}, {{ spot.y|number_format(3, '.', ',') }})</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock body %}
+

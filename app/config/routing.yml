@@ -1,0 +1,10 @@
+remiii_corporate:
+    resource: "@remiiiCorporateBundle/Resources/config/routing.yml"
+    prefix:   /
+
+remiii_map:
+    resource: "@remiiiMapBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+

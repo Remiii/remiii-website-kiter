@@ -1,0 +1,232 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent () }} - Admin: Add/Update spot{% endblock title %}
+
+{% block style %}
+    {{ parent () }}
+    <style>
+        .container-map {
+            width: 100%;
+            height: 300px;
+        }
+        #map-canvas {
+            width: 100%;
+            height: 100%;
+        }
+        #infoPanel {
+            float: left;
+            margin-left: 10px;
+        }
+        #infoPanel div {
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock style %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1>Admin: Add spot</h1>
+
+        {{ include('remiiiGlobalBundle:Include:FormMessage.html.twig') }}
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class='container-map'>
+                    <div style="height: 100%;" id="map-canvas"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_label(form.x, 'label.x'|trans ) }}
+                        {{ form_errors(form.x) }}
+                        {{ form_widget(form.x, { 'attr': {'class': 'col-sm4'} }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.y, 'label.y'|trans ) }}
+                        {{ form_errors(form.y) }}
+                        {{ form_widget(form.y) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.name, 'label.name'|trans ) }}
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.description, 'label.description'|trans ) }}
+                        {{ form_errors(form.description) }}
+                        {{ form_widget(form.description) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.sport, 'label.sport'|trans ) }}
+                        {{ form_errors(form.sport) }}
+                        {{ form_widget(form.sport) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.sportExtra, 'label.sportExtra'|trans ) }}
+                        {{ form_errors(form.sportExtra) }}
+                        {{ form_widget(form.sportExtra) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.wind, 'label.wind'|trans ) }}
+                        {{ form_errors(form.wind) }}
+                        {{ form_widget(form.wind) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.windExtra, 'label.windExtra'|trans ) }}
+                        {{ form_errors(form.windExtra) }}
+                        {{ form_widget(form.windExtra) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.tide, 'label.tide'|trans ) }}
+                        {{ form_errors(form.tide) }}
+                        {{ form_widget(form.tide) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.tideExtra, 'label.tideExtra'|trans ) }}
+                        {{ form_errors(form.tideExtra) }}
+                        {{ form_widget(form.tideExtra) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.condition, 'label.condition'|trans ) }}
+                        {{ form_errors(form.condition) }}
+                        {{ form_widget(form.condition) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.conditionExtra, 'label.conditionExtra'|trans ) }}
+                        {{ form_errors(form.conditionExtra) }}
+                        {{ form_widget(form.conditionExtra) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.hazard, 'label.hazard'|trans ) }}
+                        {{ form_errors(form.hazard) }}
+                        {{ form_widget(form.hazard) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.hazardExtra, 'label.zardExtra'|trans ) }}
+                        {{ form_errors(form.hazardExtra) }}
+                        {{ form_widget(form.hazardExtra) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.rule, 'label.rule'|trans) }}
+                        {{ form_errors(form.rule) }}
+                        {{ form_widget(form.rule) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.ruleExtra, 'label.ruleExtra'|trans ) }}
+                        {{ form_errors(form.ruleExtra) }}
+                        {{ form_widget(form.ruleExtra) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.surface, 'label.surface'|trans ) }}
+                        {{ form_errors(form.surface) }}
+                        {{ form_widget(form.surface) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.surfaceExtra, 'label.surfaceExtra'|trans ) }}
+                        {{ form_errors(form.surfaceExtra) }}
+                        {{ form_widget(form.surfaceExtra) }}
+                    </div>
+                    {#<div class="form-group">
+                        {{ form_label(form.spotPhotos) }}
+                        {{ form_errors(form.spotPhotos) }}
+                        {{ form_widget(form.spotPhotos) }}
+                    </div>#}
+                    <div class="form-group">
+                        {{ form_label(form.spotWebcams, 'label.spotWebcams'|trans ) }}
+                        {{ form_errors(form.spotWebcams) }}
+                        {{ form_widget(form.spotWebcams) }}
+                    </div>
+                    {{ form_row(form.ok) }}
+                {{ form_end(form, {'render_rest': false}) }}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock body %}
+
+
+{% block javascript %}
+
+    {{ parent() }}
+
+    {# JS Google MAP #}
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+
+        function updateMarkerPosition(latLng) {
+            $('input[name="spot[y]"]').val( latLng.lat() ) ;
+            $('input[name="spot[x]"]').val( latLng.lng() ) ;
+        }
+
+        function initialize() {
+
+            if ( $('input[name="spot[x]"]').val() == '' && $('input[name="spot[y]"]').val() == '' )
+            {
+                var latLng = new google.maps.LatLng(48.858, 2.294);
+            }
+            else
+            {
+                var latLng = new google.maps.LatLng( $('input[name="spot[y]"]').val().replace(/,/g, '.') , $('input[name="spot[x]"]').val().replace(/,/g, '.') );
+            }
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: 7,
+                center: latLng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false
+            });
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: 'Point',
+                map: map,
+                draggable: true
+            });
+
+            // Update current position info.
+            updateMarkerPosition(latLng);
+
+            // Add dragging event listeners.
+
+            google.maps.event.addListener(marker, 'drag', function() {
+                updateMarkerPosition(marker.getPosition());
+            });
+
+            // TODO
+            //$('input[name="spotProposal[x]"]').keypress(function() { alert( $('input[name="spotProposal[x]"]').val() ) });
+            //$('input[name="spotProposal[y]"]').keypress(function() { alert ( 'y' ) });
+
+        }
+
+        // Onload handler to fire off the app.
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    {# End JS Google MAP #}
+
+    {#<script>
+        /*****************
+         * TimeSlot part *
+         *****************/
+        var collectionHolder = $('ul.photo');
+        var $newLinkLi = $('<li></li>').append($('<div class="form-group"><a href="#" class="add_time_slot_link">+ Ajoutez une disponibilité</a></div>'));
+        var nbOfSlot = 0;
+        function addTimeSlotForm(collectionHolder, $newLinkLi, $value) {
+            var prototype = collectionHolder.attr('data-prototype');
+            //alert ( prototype ) ;
+            var newForm = prototype ;
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+            nbOfSlot = nbOfSlot + 1 ;
+        }
+    </script>#}
+
+{% endblock javascript %}
+
+
