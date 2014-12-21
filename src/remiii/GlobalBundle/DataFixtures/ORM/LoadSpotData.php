@@ -38,7 +38,7 @@ class LoadSpotData implements FixtureInterface, ContainerAwareInterface
         {
             $spot = new Spot ( ) ;
             if ( $row [ 'input' ] != null ) $spot -> setInput ( $row [ 'input' ] ) ;
-            if ( $row [ 'lastModifiedInput' ] != null ) $spot -> setLastModifiedInput ( new \DateTime ( ) ) ;
+            if ( $row [ 'lastModifiedInput' ] != null ) $spot -> setLastModifiedInput ( $row [ 'lastModifiedInput' ] ) ;
             if ( $row [ 'sportInput' ] != null ) $spot -> setSportInput ( $row [ 'sportInput' ] ) ;
             if ( $row [ 'x' ] != null ) $spot -> setX ( $row [ 'x' ] ) ;
             if ( $row [ 'y' ] != null ) $spot -> setY ( $row [ 'y' ] ) ;
