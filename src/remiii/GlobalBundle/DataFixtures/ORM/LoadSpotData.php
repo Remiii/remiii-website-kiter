@@ -32,7 +32,7 @@ class LoadSpotData implements FixtureInterface, ContainerAwareInterface
     public function load ( ObjectManager $manager )
     {
         $fixtureLoader = $this -> container -> get ( 'remiii_global.fixtureLoader' ) ;
-        $data = $fixtureLoader -> getData ( __DIR__ . '/fixtures/' . 'spot.csv' ) ;
+        $data = $fixtureLoader -> getData ( __DIR__ . '/fixtures/' . 'spot.tsv' ) ;
 
         foreach ( $data as $key => $row )
         {
