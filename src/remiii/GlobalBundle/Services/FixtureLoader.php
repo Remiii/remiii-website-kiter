@@ -37,7 +37,13 @@ class FixtureLoader
                 $data [ ] = $line ;
             }
         }
+        var_dump ( $data ) ;
         return $data ;
+    }
+
+    public function getArray ( $data )
+    {
+        return explode ( ',' , $data ) ;
     }
 
 }

@@ -179,6 +179,14 @@ class DefaultController extends Controller
             $spotProposal -> setX ( $spot -> getX ( ) ) ;
             $spotProposal -> setY ( $spot -> getY ( ) ) ;
             $spotProposal -> setName ( $spot -> getName ( ) ) ;
+            $spotProposal -> setDescription ( $spot -> getDescription ( ) ) ;
+            //$spotProposal -> setDescriptionExtra ( $spot -> getDescriptionExtra ( ) ) ;
+            $spotProposal -> setHazard ( $spot -> getHazard ( ) ) ;
+            $spotProposal -> setHazardExtra ( $spot -> getHazardExtra ( ) ) ;
+            $spotProposal -> setRule ( $spot -> getRule ( ) ) ;
+            $spotProposal -> setRuleExtra ( $spot -> getRuleExtra ( ) ) ;
+            $spotProposal -> setSurface ( $spot -> getSurface ( ) ) ;
+            $spotProposal -> setSurfaceExtra ( $spot -> getSurfaceExtra ( ) ) ;
 
             $form = $this->createForm(new SpotProposalType(), $spotProposal );
 

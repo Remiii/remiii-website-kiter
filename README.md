@@ -1,5 +1,14 @@
 # remiii-website-kiter
 
+```
+  ,
+ /|   / o                o
+  |__/    _|_  _   ,_        __
+  | \   |  |  |/  /  |   |  /  \_
+  |  \_/|_/|_/|__/   |_/o|_/\__/
+
+```
+
 Website kiter.io
 
 ## License
