@@ -1,0 +1,78 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent () }} - SpotProposal List{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1>SpotProposal List</h1>
+
+        <table class="table table-condensed">
+            <thead>
+                <td><strong>Id</strong></td>
+                <td><strong>Created</strong></td>
+                <td><strong>Email</strong></td>
+                <td><strong>X / Y</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>Description</strong></td>
+                <td><strong>IP</strong></td>
+            </thead>
+            <tbody>
+                {% for spotProposal in spotsProposal %}
+                    <tr class="active">
+                        <td>{{ spotProposal.id }}</td>
+                        <td>{{ spotProposal.created|date('Y-m-d H:i:s') }}</td>
+                        <td>{{ spotProposal.email }}</td>
+                        <td>{{ spotProposal.x }} / {{ spotProposal.y }}</td>
+                        <td>{{ spotProposal.name }}</td>
+                        <td>{{ spotProposal.description }}</td>
+                        <td>{{ spotProposal.ip }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Sport</td>
+                        <td>{{ spotProposal.sport|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.sportExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Wind</td>
+                        <td>{{ spotProposal.wind|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.windExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Tide</td>
+                        <td>{{ spotProposal.tide|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.tideExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Condition</td>
+                        <td>{{ spotProposal.condition|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.conditionExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Hazard</td>
+                        <td>{{ spotProposal.hazard|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.hazardExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Rule</td>
+                        <td>{{ spotProposal.rule|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.ruleExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Surface</td>
+                        <td>{{ spotProposal.surface|join('|') }}</td>
+                        <td colspan="4">{{ spotProposal.surfaceExtra }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Mark</td>
+                        <td colspan="5">{{ spotProposal.marks }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock body %}
+

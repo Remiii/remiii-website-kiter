@@ -90,7 +90,7 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
      */
     public function spotProposalAddAction ( Request $request )
     {
@@ -162,13 +162,13 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
      */
     public function spotProposalUpdateAction ( Request $request , $x , $y , $name )
     {
 
         $em = $this -> getDoctrine ( ) -> getManager ( ) ;
-        $spot = $em ->getRepository('remiiiGlobalBundle:Spot') -> findOneByUrl ( $x . '/' . $y . '/' . $name ) ;
+        $spot = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> findOneByUrl ( $x . '/' . $y . '/' . $name ) ;
 
         if ( $spot )
         {
@@ -261,7 +261,19 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
+     */
+    public function spotProposalListAction ( Request $request )
+    {
+
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $spotsProposal = $em -> getRepository ( 'remiiiGlobalBundle:SpotProposal' ) -> findAll ( ) ;
+        return array ( 'spotsProposal' => $spotsProposal ) ;
+
+    }
+
+    /**
+     * @Template
      */
     public function spotAddAction ( Request $request )
     {
@@ -304,7 +316,7 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
      */
     public function spotUpdateAction ( Request $request, $x, $y, $name )
     {
