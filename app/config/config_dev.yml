@@ -33,6 +33,6 @@ assetic:
     use_controller: "%use_assetic_controller%"
 
 swiftmailer:
-    delivery_address: free-software@remibarbe.fr
-    disable_delivery:  true
+    delivery_address: "%email_dev%"
+    disable_delivery: false
 

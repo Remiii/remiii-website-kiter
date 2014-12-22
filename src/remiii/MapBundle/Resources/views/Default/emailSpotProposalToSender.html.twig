@@ -1,3 +1,17 @@
-<p>{{ 'hello'|trans|capitalize }} {{ email }},<br>
-Many thanks for your contribution.<p>
+{% extends "remiiiGlobalBundle:Emails:emailLayout.html.twig" %}
+
+{% block title %}{{ parent ( ) }}{% endblock title %}
+
+{% block body %}
+    <div class="content">
+        <table>
+            <tr>
+                <td>
+                    <h1>Spot proposition</h1>
+                    <p>{{ 'hello'|trans|capitalize }} {{ email }}, many thanks for your contribution.<p>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock body %}
 

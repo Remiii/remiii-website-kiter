@@ -1,2 +1,19 @@
-<p>Add spot by: {{ email }}</p>
+
+{% extends "remiiiGlobalBundle:Emails:emailLayout.html.twig" %}
+
+{% block title %}{{ parent ( ) }}{% endblock title %}
+
+{% block body %}
+    <div class="content">
+        <table>
+            <tr>
+                <td>
+                    <h1>Spot proposition</h1>
+                    <p>Add spot by: {{ email }}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock body %}
+
 
