@@ -41,4 +41,9 @@ class FixtureLoader
         return $data ;
     }
 
+    public function getArray ( $data )
+    {
+        return explode ( ',' , $data ) ;
+    }
+
 }
