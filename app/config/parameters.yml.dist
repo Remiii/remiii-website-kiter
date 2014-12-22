@@ -30,3 +30,7 @@ parameters:
     # Admin password
     admin_login: administration
     admin_password: ThisPasswordIsNotSoSecretChangeIt
+
+    # Dev
+    email_dev: ~
+
