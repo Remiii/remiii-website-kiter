@@ -90,7 +90,7 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
      */
     public function spotProposalAddAction ( Request $request )
     {
@@ -162,13 +162,13 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
      */
     public function spotProposalUpdateAction ( Request $request , $x , $y , $name )
     {
 
         $em = $this -> getDoctrine ( ) -> getManager ( ) ;
-        $spot = $em ->getRepository('remiiiGlobalBundle:Spot') -> findOneByUrl ( $x . '/' . $y . '/' . $name ) ;
+        $spot = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> findOneByUrl ( $x . '/' . $y . '/' . $name ) ;
 
         if ( $spot )
         {
@@ -261,15 +261,27 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
+     */
+    public function spotProposalListAction ( Request $request )
+    {
+
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $spotsProposal = $em -> getRepository ( 'remiiiGlobalBundle:SpotProposal' ) -> findAll ( ) ;
+        return array ( 'spotsProposal' => $spotsProposal ) ;
+
+    }
+
+    /**
+     * @Template
      */
     public function spotAddAction ( Request $request )
     {
 
         $spot = new Spot ( ) ;
-        $spotWebcam = new SpotWebcam ( ) ;
-        $spot -> addSpotWebcam ( $spotWebcam ) ;
-        $spotWebcam -> setSpot ( $spot ) ;
+        //$spotWebcam = new SpotWebcam ( ) ;
+        //$spot -> addSpotWebcam ( $spotWebcam ) ;
+        //$spotWebcam -> setSpot ( $spot ) ;
 
         $form = $this -> createForm ( new SpotType ( ) , $spot ) ;
 
@@ -280,6 +292,10 @@ class DefaultController extends Controller
 
             // TODO
             $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+            $url = number_format ( round ( $spot -> getX ( ) , 3 ) , 3 , '.' , '' ) . '/' . number_format ( round ( $spot -> getY ( ) , 3 ) , 3 , '.' , '' ) . '/' .
+                preg_replace ( '/[^a-zA-Z0-9]+/' , '-' ,
+                substr ( str_replace ( ' ' , '-' ,  iconv('utf8', 'ascii//TRANSLIT', strtolower ( $spot -> getName ( ) ) ) ) , 0 , 40 ) ) ;
+            $spot -> setUrl ( $url ) ;
             /*foreach ($spot->getSpotPhotos() as $spotPhoto)
             {
                 $spotPhoto->setSpot($spot) ;
@@ -300,7 +316,7 @@ class DefaultController extends Controller
     }
 
     /**
-     *@Template
+     * @Template
      */
     public function spotUpdateAction ( Request $request, $x, $y, $name )
     {

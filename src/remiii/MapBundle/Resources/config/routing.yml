@@ -1,3 +1,21 @@
+remiii_map_spotProposalList:
+    path:   /admin/spot-proposal/list
+    defaults: { _controller: remiiiMapBundle:Default:spotProposalList }
+    requirements:
+        _method:  GET|POST
+
+remiii_map_spotUpdate:
+    path: /admin/{x}/{y}/{name}/update
+    defaults: { _controller: remiiiMapBundle:Default:spotUpdate }
+    requirements:
+        _method:  GET|POST
+
+remiii_map_spotAdd:
+    path: /admin/add-spot
+    defaults: { _controller: remiiiMapBundle:Default:spotAdd }
+    requirements:
+        _method:  GET|POST
+
 remiii_map_spotmap:
     path:     /map/
     defaults: { _controller: remiiiMapBundle:Default:map }
@@ -31,18 +49,6 @@ remiii_map_spotProposalAdd:
 remiii_map_spotProposalUpdate:
     path: /{x}/{y}/{name}/update
     defaults: { _controller: remiiiMapBundle:Default:spotProposalUpdate }
-    requirements:
-        _method:  GET|POST
-
-remiii_map_spotUpdate:
-    path: /admin/{x}/{y}/{name}/update
-    defaults: { _controller: remiiiMapBundle:Default:spotUpdate }
-    requirements:
-        _method:  GET|POST
-
-remiii_map_spotAdd:
-    path: /admin/add-spot
-    defaults: { _controller: remiiiMapBundle:Default:spotAdd }
     requirements:
         _method:  GET|POST
 
