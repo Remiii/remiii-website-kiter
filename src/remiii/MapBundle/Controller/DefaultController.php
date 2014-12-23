@@ -109,7 +109,7 @@ class DefaultController extends Controller
                 // Email to sender
                 $message = \Swift_Message::newInstance ( )
                     -> setSubject ( 'Add spot: ' . $form -> get ( 'name' ) -> getData ( ) )
-                    -> setFrom ( $this -> container -> getParameter ( 'email_noreply' ) )
+                    -> setFrom ( array ( $this -> container -> getParameter ( 'email_noreply' ) => 'kiter.io' ) )
                     -> setTo ( $form -> get ( 'email' ) -> getData ( ) )
                     -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                     -> setcontenttype ( 'text/html' )
@@ -126,7 +126,7 @@ class DefaultController extends Controller
                 // Email to Admin
                 $message = \Swift_Message::newInstance ( )
                     -> setSubject ( '[AddSpot] ' . $form -> get ( 'name' ) -> getData ( ) )
-                    -> setFrom ( $form -> get ( 'email' ) -> getData ( ) )
+                    -> setFrom ( array ( $form -> get ( 'email' ) -> getData ( ) => 'kiter.io' ) )
                     -> setTo ( $this -> container -> getParameter ( 'email_admin' ) )
                     -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                     -> setcontenttype ( 'text/html' )
@@ -208,7 +208,7 @@ class DefaultController extends Controller
                     // Email to sender
                     $message = \Swift_Message::newInstance ( )
                         -> setSubject ( 'Add spot: ' . $form -> get ( 'name' ) -> getData ( ) )
-                        -> setFrom ( $this -> container -> getParameter ( 'email_noreply' ) )
+                        -> setFrom ( array ( $this -> container -> getParameter ( 'email_noreply' ) => 'kiter.io' ) )
                         -> setTo ( $form -> get ( 'email' ) -> getData ( ) )
                         -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                         -> setcontenttype ( 'text/html' )
@@ -225,7 +225,7 @@ class DefaultController extends Controller
                     // Email to Admin
                     $message = \Swift_Message::newInstance ( )
                         -> setSubject ( '[AddSpot] ' . $form -> get ( 'name' ) -> getData ( ) )
-                        -> setFrom ( $form -> get ( 'email' ) -> getData ( ) )
+                        -> setFrom ( array ( $form -> get ( 'email' ) -> getData ( ) => 'kiter.io' ) )
                         -> setTo ( $this -> container -> getParameter ( 'email_admin' ) )
                         -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                         -> setcontenttype ( 'text/html' )
