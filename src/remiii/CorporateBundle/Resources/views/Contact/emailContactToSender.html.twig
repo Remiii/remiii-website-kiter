@@ -1,3 +1,18 @@
-<p>{{ 'hello'|trans|capitalize }} {{ name|capitalize }},<br>
-{{ 'message_sent'|trans|capitalize }}.<br>
-{{ 'your_message'|trans|capitalize}}: {{ message }}<p>
+{% extends "remiiiGlobalBundle:Emails:emailLayout.html.twig" %}
+
+{% block title %}{{ parent ( ) }}{% endblock title %}
+
+{% block body %}
+    <div class="content">
+        <table>
+            <tr>
+                <td>
+                    <h1>{{ 'contact.email.your_message'|capitalize }}</h1>
+                    <p>{{ 'contact.email.hello'|trans|capitalize }} {{ name|title }}, {{ 'contact.email.message_sent'|trans|capitalize }}.</p>
+                    <p>{{ 'contact.email.your_message'|trans|capitalize }}:<br>{{ message }}<p>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock body %}
+

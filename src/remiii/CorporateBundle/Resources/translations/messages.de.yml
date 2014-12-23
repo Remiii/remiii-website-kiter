@@ -15,4 +15,8 @@ contact:
     subject: thema
     message: nachricht
     send: weiter
+    email:
+        hello: hello
+        your_message: your message
+        message_sent: your message has been sent
 
