@@ -46,7 +46,7 @@ class SpotType extends AbstractType
                     'kitesurf'   => 'kitesurf',
                     'buggy'   => 'buggy',
                     'kite'   => 'kite',
-                    'montainborad'   => 'montainboard',
+                    'mountainboard'   => 'mountainboard',
                     'snowkite'  => 'snowkite',
                 ),
                 'expanded' => true,
