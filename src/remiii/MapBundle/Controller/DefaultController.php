@@ -180,7 +180,14 @@ class DefaultController extends Controller
             $spotProposal -> setY ( $spot -> getY ( ) ) ;
             $spotProposal -> setName ( $spot -> getName ( ) ) ;
             $spotProposal -> setDescription ( $spot -> getDescription ( ) ) ;
-            //$spotProposal -> setDescriptionExtra ( $spot -> getDescriptionExtra ( ) ) ;
+            $spotProposal -> setSport ( $spot -> getSport ( ) ) ;
+            $spotProposal -> setSportExtra ( $spot -> getSportExtra ( ) ) ;
+            $spotProposal -> setWind ( $spot -> getWind ( ) ) ;
+            $spotProposal -> setWindExtra ( $spot -> getWindExtra ( ) ) ;
+            $spotProposal -> setTide ( $spot -> getTide ( ) ) ;
+            $spotProposal -> setTideExtra ( $spot -> getTideExtra ( ) ) ;
+            $spotProposal -> setCondition ( $spot -> getCondition ( ) ) ;
+            $spotProposal -> setConditionExtra ( $spot -> getConditionExtra ( ) ) ;
             $spotProposal -> setHazard ( $spot -> getHazard ( ) ) ;
             $spotProposal -> setHazardExtra ( $spot -> getHazardExtra ( ) ) ;
             $spotProposal -> setRule ( $spot -> getRule ( ) ) ;
