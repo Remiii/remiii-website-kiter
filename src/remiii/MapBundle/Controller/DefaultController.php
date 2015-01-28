@@ -27,6 +27,14 @@ class DefaultController extends Controller
     /**
      * @Template
      */
+    public function map3rdPartyAction ( $vendor = null )
+    {
+        return array ( ) ;
+    }
+
+    /**
+     * @Template
+     */
     public function spotAction ( Request $request , $x , $y , $name )
     {
         $em = $this -> getDoctrine ( ) -> getManager ( ) ;
