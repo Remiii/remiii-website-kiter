@@ -17,8 +17,20 @@ remiii_map_spotAdd:
         _method:  GET|POST
 
 remiii_map_spotmap:
-    path:     /map/
+    path:     /map
     defaults: { _controller: remiiiMapBundle:Default:map }
+    requirements:
+        _method:  GET
+
+remiii_map_spotmapEmbed:
+    path:     /map/3rd-party
+    defaults: { _controller: remiiiMapBundle:Default:map3rdParty }
+    requirements:
+        _method:  GET
+
+remiii_map_spotmapEmbedVendor:
+    path:     /map/3rd-party/{vendor}
+    defaults: { _controller: remiiiMapBundle:Default:map3rdParty }
     requirements:
         _method:  GET
 

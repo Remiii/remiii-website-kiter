@@ -15,3 +15,7 @@ contact:
     subject: sujet
     message: message
     send: envoyer
+    email:
+        hello: bonjour
+        your_message: votre meesage
+        message_sent: votre message a été envoyé

@@ -1,5 +1,18 @@
-<p>New message:</p>
-<p>From: {{ name|capitalize }} ({{ ip }})</p>
-<p>Message: {{ message }}</p>
-<hr>
-<p>Email sent form the contact from.</p>
+{% extends "remiiiGlobalBundle:Emails:emailLayout.html.twig" %}
+
+{% block title %}{{ parent ( ) }}{% endblock title %}
+
+{% block body %}
+    <div class="content">
+        <table>
+            <tr>
+                <td>
+                    <h1>Contact form</h1>
+                    <p>From: {{ name|capitalize }} ({{ ip }})</p>
+                    <p>Message:<br>{{ message }}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock body %}
+

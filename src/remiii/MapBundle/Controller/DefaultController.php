@@ -27,6 +27,14 @@ class DefaultController extends Controller
     /**
      * @Template
      */
+    public function map3rdPartyAction ( $vendor = null )
+    {
+        return array ( ) ;
+    }
+
+    /**
+     * @Template
+     */
     public function spotAction ( Request $request , $x , $y , $name )
     {
         $em = $this -> getDoctrine ( ) -> getManager ( ) ;
@@ -109,7 +117,7 @@ class DefaultController extends Controller
                 // Email to sender
                 $message = \Swift_Message::newInstance ( )
                     -> setSubject ( 'Add spot: ' . $form -> get ( 'name' ) -> getData ( ) )
-                    -> setFrom ( $this -> container -> getParameter ( 'email_noreply' ) )
+                    -> setFrom ( array ( $this -> container -> getParameter ( 'email_noreply' ) => 'kiter.io' ) )
                     -> setTo ( $form -> get ( 'email' ) -> getData ( ) )
                     -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                     -> setcontenttype ( 'text/html' )
@@ -126,7 +134,7 @@ class DefaultController extends Controller
                 // Email to Admin
                 $message = \Swift_Message::newInstance ( )
                     -> setSubject ( '[AddSpot] ' . $form -> get ( 'name' ) -> getData ( ) )
-                    -> setFrom ( $form -> get ( 'email' ) -> getData ( ) )
+                    -> setFrom ( array ( $form -> get ( 'email' ) -> getData ( ) => 'kiter.io' ) )
                     -> setTo ( $this -> container -> getParameter ( 'email_admin' ) )
                     -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                     -> setcontenttype ( 'text/html' )
@@ -180,7 +188,14 @@ class DefaultController extends Controller
             $spotProposal -> setY ( $spot -> getY ( ) ) ;
             $spotProposal -> setName ( $spot -> getName ( ) ) ;
             $spotProposal -> setDescription ( $spot -> getDescription ( ) ) ;
-            //$spotProposal -> setDescriptionExtra ( $spot -> getDescriptionExtra ( ) ) ;
+            $spotProposal -> setSport ( $spot -> getSport ( ) ) ;
+            $spotProposal -> setSportExtra ( $spot -> getSportExtra ( ) ) ;
+            $spotProposal -> setWind ( $spot -> getWind ( ) ) ;
+            $spotProposal -> setWindExtra ( $spot -> getWindExtra ( ) ) ;
+            $spotProposal -> setTide ( $spot -> getTide ( ) ) ;
+            $spotProposal -> setTideExtra ( $spot -> getTideExtra ( ) ) ;
+            $spotProposal -> setCondition ( $spot -> getCondition ( ) ) ;
+            $spotProposal -> setConditionExtra ( $spot -> getConditionExtra ( ) ) ;
             $spotProposal -> setHazard ( $spot -> getHazard ( ) ) ;
             $spotProposal -> setHazardExtra ( $spot -> getHazardExtra ( ) ) ;
             $spotProposal -> setRule ( $spot -> getRule ( ) ) ;
@@ -201,7 +216,7 @@ class DefaultController extends Controller
                     // Email to sender
                     $message = \Swift_Message::newInstance ( )
                         -> setSubject ( 'Add spot: ' . $form -> get ( 'name' ) -> getData ( ) )
-                        -> setFrom ( $this -> container -> getParameter ( 'email_noreply' ) )
+                        -> setFrom ( array ( $this -> container -> getParameter ( 'email_noreply' ) => 'kiter.io' ) )
                         -> setTo ( $form -> get ( 'email' ) -> getData ( ) )
                         -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                         -> setcontenttype ( 'text/html' )
@@ -218,7 +233,7 @@ class DefaultController extends Controller
                     // Email to Admin
                     $message = \Swift_Message::newInstance ( )
                         -> setSubject ( '[AddSpot] ' . $form -> get ( 'name' ) -> getData ( ) )
-                        -> setFrom ( $form -> get ( 'email' ) -> getData ( ) )
+                        -> setFrom ( array ( $form -> get ( 'email' ) -> getData ( ) => 'kiter.io' ) )
                         -> setTo ( $this -> container -> getParameter ( 'email_admin' ) )
                         -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                         -> setcontenttype ( 'text/html' )

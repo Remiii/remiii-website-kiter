@@ -15,3 +15,8 @@ contact:
     subject: subject
     message: message
     send: send
+    email:
+        hello: hello
+        your_message: your message
+        message_sent: your message has been sent
+

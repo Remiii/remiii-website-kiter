@@ -40,7 +40,7 @@ class ContactController extends Controller
                 // Email to sender
                 $message = \Swift_Message::newInstance ( )
                     -> setSubject ( $form -> get ( 'subject' ) -> getData ( ) )
-                    -> setFrom ( $this -> container -> getParameter ( 'email_noreply' ) )
+                    -> setFrom ( array ( $this -> container -> getParameter ( 'email_noreply' ) => 'kiter.io' ) )
                     -> setTo ( $form -> get ( 'email' ) -> getData ( ) )
                     -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                     -> setcontenttype ( 'text/html' )
@@ -57,8 +57,8 @@ class ContactController extends Controller
 
                 // Email to recipient
                 $message = \Swift_Message::newInstance ( )
-                    -> setSubject ( '[ContactForm]' . $form -> get ( 'subject' ) -> getData ( ) )
-                    -> setFrom ( $form -> get ( 'email' ) -> getData ( ) )
+                    -> setSubject ( '[ContactForm] ' . $form -> get ( 'subject' ) -> getData ( ) )
+                    -> setFrom ( array ( $form -> get ( 'email' ) -> getData ( ) => 'kiter.io' ) )
                     -> setTo ( $this -> container -> getParameter ( 'email_admin' ) )
                     -> setReplyTo ( $this -> container -> getParameter ( 'email_noreply' ) )
                     -> setcontenttype ( 'text/html' )
