@@ -37,7 +37,6 @@ class FixtureLoader
                 $data [ ] = $line ;
             }
         }
-        var_dump ( $data ) ;
         return $data ;
     }
 
@@ -47,3 +46,4 @@ class FixtureLoader
     }
 
 }
+
