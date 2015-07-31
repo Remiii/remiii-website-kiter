@@ -13,5 +13,6 @@
 /web/css
 /web/js
 /web/vendor
+_datas/*
 *~
 !gitkeep
