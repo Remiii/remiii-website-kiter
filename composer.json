@@ -1,29 +1,34 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "remiii/remiii-website-kiter",
     "license": "MIT",
-    "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "type": "website",
+    "description": "The Kiter.io website",
+    "authors": [
+        {
+            "name": "Rémi Barbe"
+        }
+    ],
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "2.6.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
+        "php": ">=5.3.10",
+        "symfony/symfony": "2.7.*",
+        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+        "doctrine/doctrine-bundle": "~1.4",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/distribution-bundle": "~3.0,>=3.0.12",
+        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
 
         "doctrine/doctrine-fixtures-bundle": "dev-master",
 
         "jms/i18n-routing-bundle": "1.1.*",
         "mopa/bootstrap-bundle": "3.*@dev",
-        "gedmo/doctrine-extensions": "dev-master"
+        "gedmo/doctrine-extensions": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -50,7 +55,10 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "5.3.10"
+        }
     },
     "extra": {
         "symfony-app-dir": "app",
@@ -59,7 +67,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.5-dev"
+            "dev-master": "2.7-dev"
         }
     }
 }
