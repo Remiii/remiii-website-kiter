@@ -26,10 +26,7 @@ $ sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
 
 ```sh
 $ cp app/config/parameters.yml.dist app/config/parameters.yml
-$ cp app/config/config-web/.htaccess web/
-$ cp app/config/config-web/app.php web/
 $ cp app/config/config-web/app_dev.php web/
-$ cp app/config/config-web/robots.txt web/robots.txt
 ```
 
 Update 'parameters.yml'.

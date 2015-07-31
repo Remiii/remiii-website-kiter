@@ -9,10 +9,7 @@
 /vendor/
 /bin/
 /composer.phar
-/web/robots.txt
 /web/app_dev.php
-/web/app.php
-/web/.htaccess
 /web/css
 /web/js
 /web/vendor
