@@ -11,7 +11,7 @@
 
 Website kiter.io
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/dcf88206-86e6-4c52-b99e-dd184ab69b3c/big.png)](https://insight.sensiolabs.com/projects/dcf88206-86e6-4c52-b99e-dd184ab69b3c)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/f847b346-6db2-45d1-92d3-8849a4e34806/big.png)](https://insight.sensiolabs.com/projects/f847b346-6db2-45d1-92d3-8849a4e34806)
 
 ## License
 
