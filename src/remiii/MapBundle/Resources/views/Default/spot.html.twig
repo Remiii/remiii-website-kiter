@@ -19,6 +19,16 @@
     </div>
 
     <div class="container">
+        {% if spot.city is not null %}
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">{{ spot.country }}</a></li>
+                <li><a href="#">{{ spot.state }}</a></li>
+                <li><a href="#">{{ spot.county }}</a></li>
+                <li><a href="#">{{ spot.city }}</a></li>
+                <li class="active">{{ spot.name }}</li>
+            </ol>
+        {% endif %}
         <h1>{{ spot.name|capitalize }}</h1>
         <div class="row">
             <div class="col-md-12">

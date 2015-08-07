@@ -59,6 +59,11 @@ class LoadSpotData implements FixtureInterface, ContainerAwareInterface
             if ( $row [ 'ruleExtra' ] != null ) $spot -> setRuleExtra ( $row [ 'ruleExtra' ] ) ;
             if ( $row [ 'surface' ] != null ) $spot -> setSurface ( $fixtureLoader -> getArray ( $row [ 'surface' ] ) ) ;
             if ( $row [ 'surfaceExtra' ] != null ) $spot -> setSurfaceExtra ( $row [ 'surfaceExtra' ] ) ;
+            if ( $row [ 'country' ] != null ) $spot -> setCountry ( $row [ 'country' ] ) ;
+            if ( $row [ 'state' ] != null ) $spot -> setState ( $row [ 'state' ] ) ;
+            if ( $row [ 'county' ] != null ) $spot -> setCounty ( $row [ 'county' ] ) ;
+            if ( $row [ 'city' ] != null ) $spot -> setCity ( $row [ 'city' ] ) ;
+            if ( $row [ 'locale' ] != null ) $spot -> setLocale ( $row [ 'locale' ] ) ;
             $manager -> persist ( $spot ) ;
         }
         $manager -> flush ( ) ;
