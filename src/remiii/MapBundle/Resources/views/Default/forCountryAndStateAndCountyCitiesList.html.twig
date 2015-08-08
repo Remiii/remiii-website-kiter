@@ -1,0 +1,25 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent ( ) }} - {{ 'cities'|trans|capitalize }}{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        {% if cities[0] is not null %}
+            <ol class="breadcrumb" style="margin-top:25px;">
+                <li><a href="{{ path ( 'remiii_corporate_home' ) }}">{{ 'home'|trans|capitalize }}</a></li>
+                <li><a href="{{ path ( 'remiii_map_forCountryStatesList' , { 'countryUrl' : cities[0].countryUrl } ) }}">{{ cities[0].country }}</a></li>
+                <li><a href="{{ path ( 'remiii_map_forCountryAndStateCountiesList' , { 'countryUrl' : cities[0].countryUrl , 'stateUrl' : cities[0].stateUrl } ) }}">{{ cities[0].state }}</a></li>
+                <li class="active">{{ cities[0].county }}</li>
+            </ol>
+        {% endif %}
+        <h1>{{ 'cities'|trans|capitalize }}</h1>
+        <ul class="list-unstyled">
+            {% for key, city in cities %}
+                <li><a href="{{ path ( 'remiii_map_forCountryAndStateAndCountyAndCitySpotsList' , { 'countryUrl' : city.countryUrl , 'stateUrl' : city.stateUrl , 'countyUrl' : city.countyUrl , 'cityUrl' : city.cityUrl } ) }}"</a>{{ city.city }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock body %}
+

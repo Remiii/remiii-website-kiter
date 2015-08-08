@@ -238,6 +238,34 @@ class Spot
      */
     private $locale;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country_url", type="string", length=255, nullable=true)
+     */
+    private $countryUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state_url", type="string", length=255, nullable=true)
+     */
+    private $stateUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="county_url", type="string", length=255, nullable=true)
+     */
+    private $countyUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city_url", type="string", length=255, nullable=true)
+     */
+    private $cityUrl;
+
     ///**
     // * @ORM\OneToMany(targetEntity="SpotPhoto", mappedBy="spot", cascade={"persist", "remove"})
     // */
@@ -911,7 +939,7 @@ class Spot
     /**
      * Get country
      *
-     * @return string 
+     * @return string
      */
     public function getCountry()
     {
@@ -934,7 +962,7 @@ class Spot
     /**
      * Get state
      *
-     * @return string 
+     * @return string
      */
     public function getState()
     {
@@ -957,7 +985,7 @@ class Spot
     /**
      * Get county
      *
-     * @return string 
+     * @return string
      */
     public function getCounty()
     {
@@ -980,7 +1008,7 @@ class Spot
     /**
      * Get city
      *
-     * @return string 
+     * @return string
      */
     public function getCity()
     {
@@ -1003,10 +1031,103 @@ class Spot
     /**
      * Get locale
      *
-     * @return string 
+     * @return string
      */
     public function getLocale()
     {
         return $this->locale;
+    }
+
+
+    /**
+     * Set countryUrl
+     *
+     * @param string $countryUrl
+     * @return Spot
+     */
+    public function setCountryUrl($countryUrl)
+    {
+        $this->countryUrl = $countryUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get countryUrl
+     *
+     * @return string 
+     */
+    public function getCountryUrl()
+    {
+        return $this->countryUrl;
+    }
+
+    /**
+     * Set stateUrl
+     *
+     * @param string $stateUrl
+     * @return Spot
+     */
+    public function setStateUrl($stateUrl)
+    {
+        $this->stateUrl = $stateUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get stateUrl
+     *
+     * @return string 
+     */
+    public function getStateUrl()
+    {
+        return $this->stateUrl;
+    }
+
+    /**
+     * Set countyUrl
+     *
+     * @param string $countyUrl
+     * @return Spot
+     */
+    public function setCountyUrl($countyUrl)
+    {
+        $this->countyUrl = $countyUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get countyUrl
+     *
+     * @return string 
+     */
+    public function getCountyUrl()
+    {
+        return $this->countyUrl;
+    }
+
+    /**
+     * Set cityUrl
+     *
+     * @param string $cityUrl
+     * @return Spot
+     */
+    public function setCityUrl($cityUrl)
+    {
+        $this->cityUrl = $cityUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get cityUrl
+     *
+     * @return string 
+     */
+    public function getCityUrl()
+    {
+        return $this->cityUrl;
     }
 }

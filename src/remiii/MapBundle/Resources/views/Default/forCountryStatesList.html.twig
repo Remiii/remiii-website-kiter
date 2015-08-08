@@ -1,0 +1,23 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ parent ( ) }} - {{ 'states'|trans|capitalize }}{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        {% if states[0] is not null %}
+            <ol class="breadcrumb" style="margin-top:25px;">
+                <li><a href="{{ path ( 'remiii_corporate_home' ) }}">{{ 'home'|trans|capitalize }}</a></li>
+                <li class="active">{{ states[0].country }}</li>
+            </ol>
+        {% endif %}
+        <h1>{{ 'states'|trans|capitalize }}</h1>
+        <ul class="list-unstyled">
+            {% for key, state in states %}
+                <li><a href="{{ path ( 'remiii_map_forCountryAndStateCountiesList' , { 'countryUrl' : state.countryUrl , 'stateUrl' : state.stateUrl } ) }}"</a>{{ state.state }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock body %}
+

@@ -46,4 +46,70 @@ class SpotRepository extends EntityRepository
             -> andWhere ( 's.locale is not null' ) ;
         return $qb -> getQuery ( ) -> getResult( ) ;
     }
+
+    public function getCountries ( )
+    {
+        $qb = $this -> _em -> createQueryBuilder ( 's' )
+            -> select ( 's.country , s.countryUrl' )
+            -> from ( $this -> getEntityName ( ) , 's' )
+            -> where ( 's.country is not null' )
+            -> groupBy ( 's.country' ) ;
+        return $qb -> getQuery ( ) -> getResult( ) ;
+    }
+
+    public function getStatesByCountry ( $countryUrl )
+    {
+        $qb = $this -> _em -> createQueryBuilder ( 's' )
+            -> select ( 's.country , s.countryUrl , s.state , s.stateUrl' )
+            -> from ( $this -> getEntityName ( ) , 's' )
+            -> where ( 's.state is not null' )
+            -> andWhere ( 's.countryUrl = :countryUrl')
+            -> groupBy ( 's.state' )
+            -> setParameters ( array ( 'countryUrl' => $countryUrl ) ) ;
+        return $qb -> getQuery ( ) -> getResult( ) ;
+    }
+
+    public function getCountiesByCountryAndState ( $countryUrl , $stateUrl )
+    {
+        $qb = $this -> _em -> createQueryBuilder ( 's' )
+            -> select ( 's.country , s.countryUrl , s.state , s.stateUrl , s.county , s.countyUrl' )
+            -> from ( $this -> getEntityName ( ) , 's' )
+            -> where ( 's.county is not null' )
+            -> andWhere ( 's.countryUrl = :countryUrl')
+            -> andWhere ( 's.stateUrl = :stateUrl')
+            -> groupBy ( 's.county' )
+            -> setParameters ( array ( 'countryUrl' => $countryUrl , 'stateUrl' => $stateUrl ) ) ;
+        return $qb -> getQuery ( ) -> getResult( ) ;
+    }
+
+    public function getCitiesByCountryAndStateAndCounty ( $countryUrl , $stateUrl , $countyUrl )
+    {
+        $qb = $this -> _em -> createQueryBuilder ( 's' )
+            -> select ( 's.country , s.countryUrl , s.state , s.stateUrl , s.county , s.countyUrl , s.city , s.cityUrl' )
+            -> from ( $this -> getEntityName ( ) , 's' )
+            -> where ( 's.city is not null' )
+            -> andWhere ( 's.countryUrl = :countryUrl')
+            -> andWhere ( 's.stateUrl = :stateUrl')
+            -> andWhere ( 's.countyUrl = :countyUrl')
+            -> groupBy ( 's.city' )
+            -> setParameters ( array ( 'countryUrl' => $countryUrl , 'stateUrl' => $stateUrl , 'countyUrl' => $countyUrl ) ) ;
+        return $qb -> getQuery ( ) -> getResult( ) ;
+    }
+
+    public function getSpotsByCountryAndStateAndCountyAndCity ( $countryUrl , $stateUrl , $countyUrl , $cityUrl )
+    {
+        $qb = $this -> _em -> createQueryBuilder ( 's' )
+            -> select ( 's.country , s.countryUrl , s.state , s.stateUrl , s.county , s.countyUrl , s.city , s.cityUrl , s.name , s.url' )
+            -> from ( $this -> getEntityName ( ) , 's' )
+            -> where ( 's.name is not null' )
+            -> andWhere ( 's.countryUrl = :countryUrl')
+            -> andWhere ( 's.stateUrl = :stateUrl')
+            -> andWhere ( 's.countyUrl = :countyUrl')
+            -> andWhere ( 's.cityUrl = :cityUrl')
+            -> groupBy ( 's.name' )
+            -> setParameters ( array ( 'countryUrl' => $countryUrl , 'stateUrl' => $stateUrl , 'countyUrl' => $countyUrl , 'cityUrl' => $cityUrl ) ) ;
+        return $qb -> getQuery ( ) -> getResult( ) ;
+    }
+
 }
+

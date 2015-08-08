@@ -374,5 +374,56 @@ class DefaultController extends Controller
 
     }
 
+    /**
+     * @Template
+     */
+    public function countriesListAction ( )
+    {
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $countriesList = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> getCountries ( ) ;
+        dump ( $countriesList ) ;
+        return array ( 'countries' => $countriesList ) ;
+    }
+
+    /**
+     * @Template
+     */
+    public function forCountryStatesListAction ( $countryUrl )
+    {
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $statesList = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> getStatesByCountry ( $countryUrl ) ;
+        return array ( 'states' => $statesList ) ;
+    }
+
+    /**
+     * @Template
+     */
+    public function forCountryAndStateCountiesListAction ( $countryUrl , $stateUrl )
+    {
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $countiesList = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> getCountiesByCountryAndState ( $countryUrl , $stateUrl ) ;
+        return array ( 'counties' => $countiesList ) ;
+    }
+
+    /**
+     * @Template
+     */
+    public function forCountryAndStateAndCountyCitiesListAction ( $countryUrl , $stateUrl , $countyUrl )
+    {
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $citiesList = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> getCitiesByCountryAndStateAndCounty ( $countryUrl , $stateUrl , $countyUrl ) ;
+        return array ( 'cities' => $citiesList ) ;
+    }
+
+    /**
+     * @Template
+     */
+    public function forCountryAndStateAndCountyAndCitySpotsListAction ( $countryUrl , $stateUrl , $countyUrl , $cityUrl )
+    {
+        $em = $this -> getDoctrine ( ) -> getManager ( ) ;
+        $spotsList = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> getSpotsByCountryAndStateAndCountyAndCity ( $countryUrl , $stateUrl , $countyUrl , $cityUrl ) ;
+        return array ( 'spots' => $spotsList ) ;
+    }
+
 }
 

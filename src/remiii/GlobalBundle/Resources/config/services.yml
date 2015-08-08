@@ -1,12 +1,21 @@
 parameters:
+    # Service
+    remiii_global.name_to_url.class: remiii\GlobalBundle\Services\NameToUrl
+    # Service Fixture
     remiii_global.fixtureLoader.class: remiii\GlobalBundle\Services\FixtureLoader
 
 services:
+    # Service
+    remiii_global.name_to_url:
+        class:  %remiii_global.name_to_url.class%
+    # Service 3rd part
     gedmo.listener.timestampable:
         class: Gedmo\Timestampable\TimestampableListener
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ @annotation_reader ] ]
+    # Service Fixture
     remiii_global.fixtureLoader :
         class: "%remiii_global.fixtureLoader.class%"
+

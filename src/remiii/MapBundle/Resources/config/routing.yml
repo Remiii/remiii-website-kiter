@@ -1,67 +1,96 @@
 remiii_map_spotProposalList:
-    path:   /admin/spot-proposal/list
-    defaults: { _controller: remiiiMapBundle:Default:spotProposalList }
+    path:           /admin/spot-proposal/list
+    defaults:       { _controller: remiiiMapBundle:Default:spotProposalList }
     requirements:
-        _method:  GET|POST
+        _method:    GET|POST
 
 remiii_map_spotUpdate:
-    path: /admin/{x}/{y}/{name}/update
-    defaults: { _controller: remiiiMapBundle:Default:spotUpdate }
+    path:           /admin/{x}/{y}/{name}/update
+    defaults:       { _controller: remiiiMapBundle:Default:spotUpdate }
     requirements:
-        _method:  GET|POST
+        _method:    GET|POST
 
 remiii_map_spotAdd:
-    path: /admin/add-spot
-    defaults: { _controller: remiiiMapBundle:Default:spotAdd }
+    path:           /admin/add-spot
+    defaults:       { _controller: remiiiMapBundle:Default:spotAdd }
     requirements:
-        _method:  GET|POST
+        _method:    GET|POST
 
 remiii_map_spotmap:
-    path:     /map
-    defaults: { _controller: remiiiMapBundle:Default:map }
+    path:           /map
+    defaults:       { _controller: remiiiMapBundle:Default:map }
     requirements:
-        _method:  GET
+        _method:    GET
 
 remiii_map_spotmapEmbed:
-    path:     /map/3rd-party
-    defaults: { _controller: remiiiMapBundle:Default:map3rdParty }
+    path:           /map/3rd-party
+    defaults:       { _controller: remiiiMapBundle:Default:map3rdParty }
     requirements:
-        _method:  GET
+        _method:    GET
 
 remiii_map_spotmapEmbedVendor:
-    path:     /map/3rd-party/{vendor}
-    defaults: { _controller: remiiiMapBundle:Default:map3rdParty }
+    path:           /map/3rd-party/{vendor}
+    defaults:       { _controller: remiiiMapBundle:Default:map3rdParty }
     requirements:
-        _method:  GET
+        _method:    GET
 
 remiii_map_spot:
-    path:     /{x}/{y}/{name}
-    defaults: { _controller: remiiiMapBundle:Default:spot }
+    path:           /{x}/{y}/{name}
+    defaults:       { _controller: remiiiMapBundle:Default:spot }
     requirements:
-        _method:  GET
+        _method:    GET
 
 remiii_map_spotsList:
-    path:   /spot/list
-    defaults: { _controller: remiiiMapBundle:Default:spotsList }
+    path:           /spot/list
+    defaults:       { _controller: remiiiMapBundle:Default:spotsList }
     requirements:
-        _method:  GET
+        _method:    GET
 
 remiii_map_spotsList_geojson:
-    path:     /map/spots.geojson
-    defaults: { _controller: remiiiMapBundle:Default:spotsListGeoJson }
+    path:           /map/spots.geojson
+    defaults:       { _controller: remiiiMapBundle:Default:spotsListGeoJson }
     requirements:
-        _method:  GET
+        _method:    GET
 
 remiii_map_spotProposalAdd:
-    path: /add-spot
-    defaults: { _controller: remiiiMapBundle:Default:spotProposalAdd }
+    path:           /add-spot
+    defaults:       { _controller: remiiiMapBundle:Default:spotProposalAdd }
     requirements:
-        _method:  GET|POST
+        _method:    GET|POST
 
 remiii_map_spotProposalUpdate:
-    path: /{x}/{y}/{name}/update
-    defaults: { _controller: remiiiMapBundle:Default:spotProposalUpdate }
+    path:           /{x}/{y}/{name}/update
+    defaults:       { _controller: remiiiMapBundle:Default:spotProposalUpdate }
     requirements:
-        _method:  GET|POST
+        _method:    GET|POST
 
+remiii_map_countriesList:
+    path:           /country
+    defaults:       { _controller: remiiiMapBundle:Default:countriesList }
+    requirements:
+        _method:    GET
+
+remiii_map_forCountryStatesList:
+    path:           /country/{countryUrl}
+    defaults:       { _controller: remiiiMapBundle:Default:forCountryStatesList }
+    requirements:
+        _method:    GET
+
+remiii_map_forCountryAndStateCountiesList:
+    path:           /country/{countryUrl}/state/{stateUrl}
+    defaults:       { _controller: remiiiMapBundle:Default:forCountryAndStateCountiesList }
+    requirements:
+        _method:    GET
+
+remiii_map_forCountryAndStateAndCountyCitiesList:
+    path:           /country/{countryUrl}/state/{stateUrl}/county/{countyUrl}
+    defaults:       { _controller: remiiiMapBundle:Default:forCountryAndStateAndCountyCitiesList }
+    requirements:
+        _method:    GET
+
+remiii_map_forCountryAndStateAndCountyAndCitySpotsList:
+    path:           /country/{countryUrl}/state/{stateUrl}/county/{countyUrl}/city/{cityUrl}
+    defaults:       { _controller: remiiiMapBundle:Default:forCountryAndStateAndCountyAndCitySpotsList }
+    requirements:
+        _method:    GET
 
