@@ -381,7 +381,6 @@ class DefaultController extends Controller
     {
         $em = $this -> getDoctrine ( ) -> getManager ( ) ;
         $countriesList = $em -> getRepository ( 'remiiiGlobalBundle:Spot' ) -> getCountries ( ) ;
-        dump ( $countriesList ) ;
         return array ( 'countries' => $countriesList ) ;
     }
 
