@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new remiii\GlobalBundle\remiiiGlobalBundle(),
             new remiii\CorporateBundle\remiiiCorporateBundle(),
             new remiii\MapBundle\remiiiMapBundle(),
+            new remiii\UtilsBundle\remiiiUtilsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

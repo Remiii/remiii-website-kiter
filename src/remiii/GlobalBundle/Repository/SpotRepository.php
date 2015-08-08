@@ -34,4 +34,16 @@ class SpotRepository extends EntityRepository
         return $qb -> getQuery ( ) -> getResult( ) ;
     }
 
+    public function getSpotsWithEmptyCountryAndStateAndCountyAndCity ( )
+    {
+        $qb = $this -> _em -> createQueryBuilder ( 's' )
+            -> select ( 's' )
+            -> from ( $this -> getEntityName ( ) , 's' )
+            -> where ( 's.country is null' )
+            -> andWhere ( 's.state is null' )
+            -> andWhere ( 's.county is null' )
+            -> andWhere ( 's.city is null' )
+            -> andWhere ( 's.locale is not null' ) ;
+        return $qb -> getQuery ( ) -> getResult( ) ;
+    }
 }

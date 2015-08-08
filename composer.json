@@ -28,7 +28,8 @@
 
         "jms/i18n-routing-bundle": "1.1.*",
         "mopa/bootstrap-bundle": "3.*@dev",
-        "gedmo/doctrine-extensions": "~2.0"
+        "gedmo/doctrine-extensions": "~2.0",
+        "guzzle/guzzle": "~3.9"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
