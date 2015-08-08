@@ -37,13 +37,11 @@ class UpdateGeoInfoCommand extends ContainerAwareCommand
 
         foreach ( $spots as $spot )
         {
-            echo ( '.' ) ;
             $geoInfo = $this -> getGeoInfo (
                 $spot -> getX ( ) ,
                 $spot -> getY ( ) ,
                 $spot -> getLocale ( )
             ) ;
-            dump ( $geoInfo ) ;
             $spot -> setCountry ( $geoInfo [ 'country' ] ) ;
             $spot -> setState ( $geoInfo [ 'state' ] ) ;
             $spot -> setCounty ( $geoInfo [ 'county' ] ) ;
@@ -60,18 +58,19 @@ class UpdateGeoInfoCommand extends ContainerAwareCommand
         if ( $locale == null ) $locale = 'en' ;
         $coords = array ( ) ;
         $baseUrl = 'http://maps.googleapis.com' ;
-        $uri = '/maps/api/geocode/xml?latlng=' . urlencode ( $geoCodeY ) . ',' . urlencode ( $geoCodeX ) . '&sensor=false&language' . $locale ;
+        $uri = '/maps/api/geocode/xml?latlng=' . urlencode ( $geoCodeY ) . ',' . urlencode ( $geoCodeX ) . '&sensor=false&language=' . $locale ;
         $client = new Client( $baseUrl ) ;
         $request = $client -> get ( $uri ) ;
         $response = $request -> send ( ) ;
         $xml = simplexml_load_string ( $response -> getBody ( ) ) ;
-        $geoInfo [ 'status' ] = null ;
+        $geoInfo [ 'status' ] = $xml -> status ;
         $geoInfo [ 'country' ] = null ;
         $geoInfo [ 'state' ] = null ;
         $geoInfo [ 'county' ] = null ;
         $geoInfo [ 'city' ] = null ;
         if ( $geoInfo [ 'status' ] == 'OK' )
         {
+            echo '.' ;
             foreach ( $xml -> result [ 0 ] -> address_component as $item )
             {
                 switch ( $item -> type )
@@ -99,6 +98,7 @@ class UpdateGeoInfoCommand extends ContainerAwareCommand
         }
         else
         {
+            echo 'x' ;
             return null ;
         }
     }
