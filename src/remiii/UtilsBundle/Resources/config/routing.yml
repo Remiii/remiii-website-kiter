@@ -1,0 +1,3 @@
+remiii_utils_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: remiiiUtilsBundle:Default:index }

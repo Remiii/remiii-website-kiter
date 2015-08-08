@@ -1,0 +1,4 @@
+services:
+#    remiii_utils.example:
+#        class: remiii\UtilsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
