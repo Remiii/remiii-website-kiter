@@ -46,6 +46,7 @@ class SpotProposalType extends AbstractType
                     'kitesurf'   => 'kitesurf',
                     'buggy'   => 'buggy',
                     'kite'   => 'kite',
+                    'powerkite'   => 'powerkite',
                     'mountainboard'   => 'mountainboard',
                     'snowkite'  => 'snowkite',
                 ),
