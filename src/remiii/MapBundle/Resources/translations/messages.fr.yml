@@ -10,8 +10,8 @@ label:
     sportExtra: Sport Extra
     wind: Vent
     windExtra: Vent extra
-    tide: Vague
-    tideExtra: Vague extra
+    tide: Marée
+    tideExtra: Marée extra
     condition: Condition
     conditionExtra: Condition extra
     hazard: Danger

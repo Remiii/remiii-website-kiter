@@ -53,7 +53,8 @@ class SpotProposalType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'widget_type' => 'inline',
-                'required' => false
+                'required' => false ,
+                'translation_domain' => 'sport'
             ))
             ->add('sportExtra', 'textarea', array(
                 'attr' => array(
@@ -64,14 +65,14 @@ class SpotProposalType extends AbstractType
             ))
             ->add('wind', 'choice',  array(
                 'choices' => array(
-                    'n'   => 'n',
-                    's'   => 's',
-                    'e'   => 'e',
-                    'w'   => 'w',
-                    'ne'  => 'ne',
-                    'nw'  => 'nw',
-                    'se'  => 'se',
-                    'sw'  => 'sw',
+                    'n'   => 'N',
+                    's'   => 'S',
+                    'e'   => 'E',
+                    'w'   => 'W',
+                    'ne'  => 'NE',
+                    'nw'  => 'NW',
+                    'se'  => 'SE',
+                    'sw'  => 'SW',
                 ),
                 'expanded' => true,
                 'multiple' => true,
@@ -87,17 +88,18 @@ class SpotProposalType extends AbstractType
             ))
             ->add('tide', 'choice',  array(
                 'choices' => array(
-                    'low-tide'   => 'low tide',
-                    'mid-tide'   => 'mid tide',
-                    'high-tide'   => 'high tide',
-                    'in-coming'   => 'in coming',
-                    'out-going'  => 'out going',
-                    'n-a' => 'n/a',
+                    'low-tide'   => 'low-tide',
+                    'mid-tide'   => 'mid-tide',
+                    'high-tide'   => 'high-tide',
+                    'in-coming'   => 'in-coming',
+                    'out-going'  => 'out-going',
+                    'n-a' => 'n-a',
                 ),
                 'expanded' => true,
                 'multiple' => true,
                 'widget_type' => 'inline',
-                'required' => false
+                'required' => false ,
+                'translation_domain' => 'tide'
             ))
             ->add('tideExtra', 'textarea', array(
                 'attr' => array(
@@ -110,14 +112,15 @@ class SpotProposalType extends AbstractType
                 'choices' => array(
                     'waves'   => 'waves',
                     'choppy'   => 'choppy',
-                    'flat-water'   => 'flat water',
+                    'flat-water'   => 'flat-water',
                     'shallow'   => 'shallow',
-                    'n-a' => 'n/a',
+                    'n-a' => 'n-a',
                 ),
                 'expanded' => true,
                 'multiple' => true,
                 'widget_type' => 'inline',
-                'required' => false
+                'required' => false ,
+                'translation_domain' => 'condition'
             ))
             ->add('conditionExtra', 'textarea', array(
                 'attr' => array(
@@ -129,22 +132,23 @@ class SpotProposalType extends AbstractType
             ->add('hazard', 'choice',  array(
                 'choices' => array(
                     'currents'   => 'currents',
-                    'ships-boats'   => 'ships/boats',
-                    'reefs-coral'   => 'reefs/coral',
+                    'ships-boats'   => 'ships-boats',
+                    'reefs-coral'   => 'reefs-coral',
                     'groynes'   => 'groynes',
-                    'rocks-stones'   => 'rocks/stones',
+                    'rocks-stones'   => 'rocks-stones',
                     'stakes'   => 'stakes',
                     'trees'   => 'trees',
                     'road'   => 'road',
-                    'power-lines'   => 'power lines',
-                    'small-launch-area'   => 'small launch area',
+                    'power-lines'   => 'power-lines',
+                    'small-launch-area'   => 'small-launch-area',
                     'swimmers'   => 'swimmers',
                     'none'   => 'none',
                 ),
                 'expanded' => true,
                 'multiple' => true,
                 'widget_type' => 'inline',
-                'required' => false
+                'required' => false ,
+                'translation_domain' => 'hazard'
             ))
             ->add('hazardExtra', 'textarea', array(
                 'attr' => array(
@@ -155,15 +159,16 @@ class SpotProposalType extends AbstractType
             ))
             ->add('rule', 'choice',  array(
                 'choices' => array(
-                    'restricted-zones'   => 'restricted zones',
-                    'time-restrictions'   => 'time restrictions',
+                    'restricted-zones'   => 'restricted-zones',
+                    'time-restrictions'   => 'time-restrictions',
                     'fees'   => 'fees',
                     'none'   => 'none',
                 ),
                 'expanded' => true,
                 'multiple' => true,
                 'widget_type' => 'inline',
-                'required' => false
+                'required' => false ,
+                'translation_domain' => 'rule'
             ))
             ->add('ruleExtra', 'textarea', array(
                 'attr' => array(
@@ -182,7 +187,8 @@ class SpotProposalType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'widget_type' => 'inline',
-                'required' => false
+                'required' => false ,
+                'translation_domain' => 'surface'
             ))
             ->add('surfaceExtra', 'textarea', array(
                 'attr' => array(
