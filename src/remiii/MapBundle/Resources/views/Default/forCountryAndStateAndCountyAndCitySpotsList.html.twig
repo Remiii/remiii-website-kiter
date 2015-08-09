@@ -1,20 +1,22 @@
 {% extends '::layout.html.twig' %}
 
-{% block title %}{{ parent ( ) }} - {{ 'spots'|trans|capitalize }}{% endblock title %}
+{% trans_default_domain 'MapBundle_Default_forCountryAndStateAndCountyAndCitySpotsList' %}
+
+{% block title %}{{ parent ( ) }} - {{ 'title'|trans({'%country%':spots[0].country,'%state%':spots[0].state,'%county%':spots[0].county,'%city%':spots[0].city}) }}{% endblock title %}
 
 {% block body %}
 
     <div class="container">
         {% if spots[0] is not null %}
             <ol class="breadcrumb" style="margin-top:25px;">
-                <li><a href="{{ path ( 'remiii_corporate_home' ) }}">{{ 'home'|trans|capitalize }}</a></li>
+                <li><a href="{{ path ( 'remiii_corporate_home' ) }}">{{ 'home'|trans({},'messages')|capitalize }}</a></li>
                 <li><a href="{{ path ( 'remiii_map_forCountryStatesList' , { 'countryUrl' : spots[0].countryUrl } ) }}">{{ spots[0].country }}</a></li>
                 <li><a href="{{ path ( 'remiii_map_forCountryAndStateCountiesList' , { 'countryUrl' : spots[0].countryUrl , 'stateUrl' : spots[0].stateUrl } ) }}">{{ spots[0].state }}</a></li>
                 <li><a href="{{ path ( 'remiii_map_forCountryAndStateAndCountyCitiesList' , { 'countryUrl' : spots[0].countryUrl , 'stateUrl' : spots[0].stateUrl , 'countyUrl' : spots[0].countyUrl } ) }}">{{ spots[0].state }}</a></li>
                 <li class="active">{{ spots[0].city }}</li>
             </ol>
         {% endif %}
-        <h1>{{ 'spots'|trans|capitalize }}</h1>
+        <h1>{{ 'content.title'|trans({'%country%':spots[0].country,'%state%':spots[0].state,'%county%':spots[0].county,'%city%':spots[0].city}) }}</h1>
         <ul class="list-unstyled">
             {% for key, spot in spots %}
                 <li><a href="/{{ app.request.getLocale() }}/{{ spot.url }}"</a>{{ spot.name }}</li>

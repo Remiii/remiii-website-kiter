@@ -1,17 +1,19 @@
 {% extends '::layout.html.twig' %}
 
-{% block title %}{{ parent ( ) }} - {{ 'countries'|trans|capitalize }}{% endblock title %}
+{% trans_default_domain 'MapBundle_Default_countriesList' %}
+
+{% block title %}{{ parent ( ) }} - {{ 'title'|trans }}{% endblock title %}
 
 {% block body %}
 
     <div class="container">
         {% if countries[0] is not null %}
             <ol class="breadcrumb" style="margin-top:25px;">
-                <li><a href="{{ path ( 'remiii_corporate_home' ) }}">{{ 'home'|trans|capitalize }}</a></li>
-                <li class="active">{{ 'countries'|trans|capitalize }}</li>
+                <li><a href="{{ path ( 'remiii_corporate_home' ) }}">{{ 'home'|trans({},'messages')|capitalize }}</a></li>
+                <li class="active">{{ 'countries'|trans({},'messages')|capitalize }}</li>
             </ol>
         {% endif %}
-        <h1>{{ 'countries'|trans|capitalize }}</h1>
+        <h1>{{ 'content.title'|trans }}</h1>
         <ul class="list-unstyled">
             {% for key, country in countries %}
                 <li><a href="{{ path ( 'remiii_map_forCountryStatesList' , { 'countryUrl' : country.countryUrl } ) }}"</a>{{ country.country }}</li>
