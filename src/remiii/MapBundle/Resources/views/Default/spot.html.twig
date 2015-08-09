@@ -91,7 +91,7 @@
         {% if not spot.sport|default %}
             {{ 'text_tbd'|trans }}
         {% else %}
-            <p>{{ spot.sport|join('|')|title }}</p>
+            <p>{% for sport in spot.sport %}{{ sport|trans({},'sport')|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
         {% endif %}
         <h2>{{ 'wind'|trans|capitalize }}</h2>
         {% if not spot.wind|default %}
