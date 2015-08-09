@@ -97,13 +97,13 @@
         {% if not spot.wind|default %}
             {{ 'text_tbd'|trans }}
         {% else %}
-            <p>{{ spot.wind|join('|')|upper }}</p>
+            <p>{% for wind in spot.wind %}{{ wind|upper }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
         {% endif %}
         <h2>{{ 'tide'|trans|capitalize }}</h2>
         {% if not spot.tide|default %}
             {{ 'text_tbd'|trans }}
         {% else %}
-            <p>{{ spot.tide|join('|')|capitalize }}</p>
+            <p>{% for tide in spot.tide %}{{ tide|trans({},'tide')|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
         {% endif %}
         <hr>
         <div class="row">
