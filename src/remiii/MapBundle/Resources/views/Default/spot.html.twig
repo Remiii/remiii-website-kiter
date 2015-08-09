@@ -112,7 +112,7 @@
                 {% if not spot.condition|default %}
                     {{ 'text_tbd'|trans }}
                 {% else %}
-                    <p>{{ spot.condition|join('|')|capitalize }}</p>
+                    <p>{% for condition in spot.condition %}{{ condition|trans({},'condition')|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
                 {% endif %}
             </div>
             <div class="col-lg-3">
@@ -120,7 +120,7 @@
                 {% if not spot.hazard|default %}
                     {{ 'text_tbd'|trans }}
                 {% else %}
-                    <p>{{ spot.hazard|join('|')|capitalize }}</p>
+                    <p>{% for hazard in spot.hazard %}{{ hazard|trans({},'hazard')|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
                 {% endif %}
             </div>
             <div class="col-lg-3">
@@ -128,7 +128,7 @@
                 {% if not spot.rule|default %}
                     {{ 'text_tbd'|trans }}
                 {% else %}
-                    <p>{{ spot.rule|join('|')|capitalize }}</p>
+                    <p>{% for rule in spot.rule %}{{ rule|trans({},'rule')|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
                 {% endif %}
             </div>
             <div class="col-lg-3">
@@ -136,7 +136,7 @@
                 {% if not spot.surface|default %}
                     {{ 'text_tbd'|trans }}
                 {% else %}
-                    <p>{{ spot.surface|join('|')|capitalize }}</p>
+                    <p>{% for surface in spot.surface %}{{ surface|trans({},'surface')|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
                 {% endif %}
             </div>
         </div>
