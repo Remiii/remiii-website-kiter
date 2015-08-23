@@ -49,6 +49,15 @@
 
     <body>
 
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=417577955105682";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -115,7 +124,14 @@
                     </div>
                 </div>
                 <hr>
-                <p>kiter.io - {{ "now"|date("Y") }} - <a href="http://madewithloveinparis.org" target="_blank">Made with &hearts; in Paris</a> - Fork me on <a href="https://github.com/Remiii/remiii-website-kiter" target="_blank">GitHub&nbsp;<span class="fui-github"></span></a> - By <a href="http://remibarbe.fr" target="_blank">Remiii</a> - <a href="#">{{ 'back_to_the_top'|trans }}</a></p>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <p>kiter.io - {{ "now"|date("Y") }} - <a href="http://madewithloveinparis.org" target="_blank">Made with &hearts; in Paris</a> - Fork me on <a href="https://github.com/Remiii/remiii-website-kiter" target="_blank">GitHub&nbsp;<span class="fui-github"></span></a> - By <a href="http://remibarbe.fr" target="_blank">Remiii</a> - <a href="#">{{ 'back_to_the_top'|trans }}</a></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="fb-like" data-href="http://kiter.io" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                    </div>
+                </div>
             </div>
         </footer>
 
