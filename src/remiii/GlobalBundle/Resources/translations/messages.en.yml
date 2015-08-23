@@ -11,6 +11,7 @@ german: german
 add_spot: add spot
 update_spot: update spot
 spots_list: spots list
+countries_list: countries list
 features: feature
 project: project
 developper_part: developper part
