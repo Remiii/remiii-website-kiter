@@ -9,7 +9,7 @@
 
 ```
 
-Website kiter.io
+Website kiter.io (i.e. http://kiter.remibarbe.com)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/f847b346-6db2-45d1-92d3-8849a4e34806/big.png)](https://insight.sensiolabs.com/projects/f847b346-6db2-45d1-92d3-8849a4e34806)
 
